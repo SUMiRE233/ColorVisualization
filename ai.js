@@ -13,14 +13,14 @@ ${colors.join(', ')}
 `;
 
     try {
-        const response = await fetch("https://api.openai-proxy.org/v1/chat/completions", {
+        const response = await fetch("https://api.moonshot.cn/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "sk-1AmjJn7Q8ipQ9MkFQVNnqHmw68bnuQQrXsUt9za8HCn7vgk6"
+                "Authorization": "sk-4T4zHboQ18tMUiNYkewdT6pRFdrDnPbAz2lmS1I1wgbv9RHW"
             },
             body: JSON.stringify({
-                model: "gpt-4o-mini",  // ✅ 推荐模型
+                model: "moonshot-v1-8k",  // ✅ 推荐模型
                 messages: [
                     { role: "user", content: prompt }
                 ],

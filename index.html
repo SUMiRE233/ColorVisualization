@@ -4,43 +4,67 @@
     <meta charset="UTF-8">
     <title>ColorVisualization</title>
 </head>
-<body>
+<body style="font-family: Arial; margin:0; background:#f5f7fa;">
 
-    <!-- 上传 -->
-    <input type="file" id="upload" />
-
-    <!-- ✅ 新增：K值控制 -->
-    <div>
-        <label>K值：</label>
-        <input type="range" id="kRange" min="3" max="10" value="5">
-        <span id="kValue">5</span>
+    <!-- 标题 -->
+    <div style="background:#2c3e50; color:white; padding:20px;">
+        <h1 style="margin:0;">🎨 图片颜色聚类可视化系统</h1>
+        <p style="margin:5px 0 0;">K-means + ECharts + AI分析</p>
     </div>
 
-    <div>
-        <label>图表类型：</label>
-        <select id="chartType">
-            <option value="pie">饼图</option>
-            <option value="bar">柱状图</option>
-        </select>
+    <!-- 主体 -->
+    <div style="padding:20px;">
+
+        <!-- 控制面板 -->
+        <div style="background:white; padding:15px; border-radius:10px; margin-bottom:20px;">
+            
+            <input type="file" id="upload" />
+
+            <div style="margin-top:10px;">
+                K值：
+                <input type="range" id="kRange" min="3" max="10" value="5">
+                <span id="kValue">5</span>
+            </div>
+
+            <div style="margin-top:10px;">
+                图表：
+                <select id="chartType">
+                    <option value="pie">饼图</option>
+                    <option value="bar">柱状图</option>
+                </select>
+            </div>
+
+            <div style="margin-top:10px;">
+                颜色空间：
+                <select id="colorSpace">
+                    <option value="rgb">RGB</option>
+                    <option value="lab">LAB</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- 图表卡片 -->
+        <div style="background:white; padding:15px; border-radius:10px;">
+            <div id="chart" style="width:100%;height:400px;"></div>
+        </div>
+
+        <!-- AI结果 -->
+        <div style="background:white; padding:15px; border-radius:10px; margin-top:20px;">
+            <h3>🤖 AI颜色分析</h3>
+            <div id="aiResult">等待分析...</div>
+        </div>
+
+        <!-- 项目说明 -->
+        <div style="margin-top:20px; color:#555;">
+            <h3>📘 项目说明</h3>
+            <p>本项目基于K-means算法对图像颜色进行聚类分析，并通过ECharts进行可视化展示。</p>
+            <p>支持RGB与LAB颜色空间切换，并结合AI模型对颜色搭配进行美学评价。</p>
+        </div>
+
     </div>
 
-    <div>
-        <label>颜色空间：</label>
-        <select id="colorSpace">
-            <option value="rgb">RGB</option>
-            <option value="lab">LAB</option>
-        </select>
-    </div>
-
-    <div id="aiResult" style="margin-top:20px; font-weight:bold;"></div>
-
-    <!-- 图表 -->
-    <div id="chart" style="width:600px;height:400px;"></div>
-
-    <!-- echarts -->
     <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
-
-    <!-- 主程序 -->
     <script type="module" src="./main.js"></script>
 
 </body>
