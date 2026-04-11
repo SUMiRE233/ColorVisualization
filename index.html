@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ColorVisualization</title>
+</head>
+<body>
+
+    <!-- 上传 -->
+    <input type="file" id="upload" />
+
+    <!-- ✅ 新增：K值控制 -->
+    <div>
+        <label>K值：</label>
+        <input type="range" id="kRange" min="3" max="10" value="5">
+        <span id="kValue">5</span>
+    </div>
+
+    <div>
+        <label>图表类型：</label>
+        <select id="chartType">
+            <option value="pie">饼图</option>
+            <option value="bar">柱状图</option>
+        </select>
+    </div>
+
+    <div>
+        <label>颜色空间：</label>
+        <select id="colorSpace">
+            <option value="rgb">RGB</option>
+            <option value="lab">LAB</option>
+        </select>
+    </div>
+
+    <div id="aiResult" style="margin-top:20px; font-weight:bold;"></div>
+
+    <!-- 图表 -->
+    <div id="chart" style="width:600px;height:400px;"></div>
+
+    <!-- echarts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+    <!-- 主程序 -->
+    <script type="module" src="./main.js"></script>
+
+</body>
+</html>
