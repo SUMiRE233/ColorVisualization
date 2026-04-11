@@ -73,6 +73,28 @@ function runKmeansAndRender() {
 
     renderChart(result, currentChartType);
 
+    // ================= 颜色块展示 =================
+    const container = document.getElementById('colorBlocks');
+    container.innerHTML = '';
+
+    result.forEach(r => {
+        const div = document.createElement('div');
+        div.style.width = '50px';
+        div.style.height = '50px';
+        div.style.borderRadius = '6px';
+        div.style.background = `rgb(${r.color.join(',')})`;
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        div.style.justifyContent = 'center';
+        div.style.color = '#fff';
+        div.style.fontSize = '12px';
+
+        div.innerText = r.count;
+        div.title = `rgb(${r.color.join(',')})`;
+
+        container.appendChild(div);
+    });
+
     // ================= AI分析 =================
     const colors = result.map(r => `rgb(${r.color.join(',')})`);
 
@@ -90,6 +112,9 @@ document.getElementById('upload').onchange = function (e) {
 
     img.onload = () => {
         currentPixels = getImagePixels(img);
+
+        // 👉 加这一行（显示原图）
+        document.getElementById('preview').src = img.src;
 
         console.log("像素数:", currentPixels.length);
 
