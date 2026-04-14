@@ -41,6 +41,7 @@ ColorVisualization/
 
 1. **打开应用**
    - 在浏览器中打开 `index.html`
+   - 或直接打开[http://sumire233.github.io/ColorVisualization](http://sumire233.github.io/ColorVisualization) ，代码已托管在github pages
 
 2. **上传图片**
    - 点击"选择文件"按钮
